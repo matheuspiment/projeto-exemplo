@@ -8,9 +8,9 @@ public class Foo {
     /**
      * Construtor da classe.
      *
-     * @throws IllegalStateException Caso o divisor seja 0.
+     * @throws IllegalStateException Caso a classe seja instaciada.
      */
-    private Foo() {
+    protected Foo() {
         throw new IllegalStateException("Utility class");
     }
 
