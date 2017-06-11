@@ -3,19 +3,51 @@
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>com.github.matheuspiment</groupId>
-    <artifactId>sonar-test</artifactId>
+    <artifactId>projeto-exemplo</artifactId>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     
-    <name>com.github.matheuspiment:sonar-test</name>
+    <name>com.github.matheuspiment:projeto-exemplo</name>
     
     <description>Projeto de referência (exemplo) inicial de desenvolvimento em Java com uso de JUnit, Travis-CI, SonarCloud, Codacy e CodeClimate.</description>
     
-    <url>https://github.com/matheuspiment/sonar-test</url>
+    <url>https://github.com/matheuspiment/projeto-exemplo</url>
+    
+    <organization>
+        <name>Instituto de Informática (UFG)</name>
+        <url>http://www.inf.ufg.br</url>
+    </organization>
+    
+     <inceptionYear>2017</inceptionYear>
+    
+    <licenses>
+        <license>
+            <name>Creative Commons Attribution 4.0 International (CC BY 4.0)</name>
+            <comments>A atribuição deve conter, explicitamente, a seguinte linha:
+                Copyright (c) 2017. Matheus Ribeiro Pimenta Nunes - Instituto de Informática (UFG)
+            </comments>
+            <url>https://creativecommons.org/licenses/by/4.0/</url>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <id>matheuspiment</id>
+            <name>Matheus Ribeiro Pimenta Nunes</name>
+            <email>matheuspiment@hotmail.com</email>
+            <organization>Instituto de Informática (UFG)</organization>
+            <organizationUrl>http://www.inf.ufg.br</organizationUrl>
+        </developer>
+    </developers>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:matheuspiment/sonar-test.git</connection>
-        <developerConnection>scm:git:git@github.com:matheuspiment/sonar-test.git</developerConnection>
-        <url>https://github.com/matheuspiment/sonar-test</url>
+        <connection>scm:git:git@github.com:matheuspiment/projeto-exemplo.git</connection>
+        <developerConnection>scm:git:git@github.com:matheuspiment/projeto-exemplo.git</developerConnection>
+        <url>https://github.com/matheuspiment/projeto-exemplo</url>
     </scm>
 
     <dependencies>
@@ -26,4 +58,125 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    
+    <build>
+
+        <!-- Define o nome do arquivo a ser gerado (.jar é acrescentada) -->
+        <finalName>Projeto-Exemplo</finalName>
+
+        <plugins>
+
+            <!-- mvn org.pitest:pitest-maven:muatationCoverage -->
+            <!-- Relatório em: target/pit-reports/YYYYMMDDHHMM -->
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.1.10</version>
+                <configuration>
+                    <targetClasses>
+                        <param>com.github.matheuspiment.projeto-exemplo.Foo</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>com.github.matheuspiment.projeto-exemplo.*</param>
+                    </targetTests>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                         
+                    <!-- OMITE INFORMACAO DE DEBUGGING -->
+                    <compilerArgs>
+                        <arg>-g:none</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeScope>runtime</includeScope>
+                            <outputDirectory>${project.build.directory}/jars/</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Copia dependencias para "jars", não incluída no jar.    -->
+            <!-- Ou seja, você deve obter exemplo.jar e o diretório jars -->
+            <!-- para que a aplicação seja executada satisfatoriamente.  -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>jars/</classpathPrefix>
+                            <mainClass>com.github.matheuspiment.projeto-exemplo.Foo</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            
+        </plugins>
+    </build>
+    
+    <profiles>
+    <!-- PROFILE: release -->
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>package-sources</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.4</version>
+                        <executions>
+                            <execution>
+                                <id>package-javadoc</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+
+        </profile>
+     </profiles>
+    
 </project>
