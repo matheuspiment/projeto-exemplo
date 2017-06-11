@@ -1,7 +1,7 @@
 package foo;
 
 /**
- * Foo class
+ * Foo class.
  *
  * <p> Implementação de uma classe para divisão de sois números.
  *
