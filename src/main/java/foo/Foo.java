@@ -3,7 +3,7 @@ package foo;
 /**
  * Foo class.
  *
- * <p> Implementação de uma classe para divisão de sois números.
+ * <p>Implementação de uma classe para divisão de sois números.
  *
  */
 public class Foo {
