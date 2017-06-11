@@ -16,7 +16,7 @@ public class FooTest {
      */
     @Test(expected = IllegalStateException.class)
     public void testIllegalState() throws Exception {
-        Foo operacao = new Foo();
+        new Foo();
     }
     
     /**
