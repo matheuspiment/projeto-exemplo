@@ -8,9 +8,6 @@ import java.util.Random;
  */
 public final class ProgramaFoo {
 
-    private static final Logger logger =
-            LogManager.getLogger(ProgramaFoo.class);
-
     /**
      * Restringe criação de instância.
      */
