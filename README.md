@@ -16,3 +16,7 @@ Você pode dar uma olhada no arquivo [.travis.yml](https://github.com/matheuspim
 deste projeto para ver na prática.
 
 [![CodeScenne](https://codescene.io/projects/1360/status.svg)](https://codescene.io/projects/1360/jobs/latest-successful/results)
+
+Projeto baseado em:
+* [Java Maven-based project analyzed on SonarCloud using Travis](https://github.com/SonarSource/sq-com_example_java-maven-travis) por [SonarSource](https://github.com/SonarSource).
+* [Exemplo](https://github.com/kyriosdata/exemplo) por [kyriosdata](https://github.com/kyriosdata)
