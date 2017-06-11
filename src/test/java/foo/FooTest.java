@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * FooTest class
+ * FooTest class.
  */
 public class FooTest {
 
@@ -22,9 +22,6 @@ public class FooTest {
     /**
      * Testa a exceção do divisor 0.
      *
-     * @param a     Dividendo 10.
-     * @param b     Divisor 0.
-     *
      * @throws UnsupportedOperationException Caso o divisor seja 0.
      */
     @Test(expected = UnsupportedOperationException.class)
@@ -34,10 +31,6 @@ public class FooTest {
 
     /**
      * Testa a exceção do divisor 0.
-     *
-     * @param a Dividendo 10.
-     * @param b Divisor 5.
-     * @return Resultado da divisão 2.
      *
      * @throws UnsupportedOperationException Caso o divisor seja 0.
      */
