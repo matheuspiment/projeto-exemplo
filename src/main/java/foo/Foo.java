@@ -5,6 +5,11 @@ package foo;
  */
 public class Foo {
     
+    /**
+     * Construtor da classe.
+     *
+     * @throws IllegalStateException Caso o divisor seja 0.
+     */
     private Foo() {
         throw new IllegalStateException("Utility class");
     }
