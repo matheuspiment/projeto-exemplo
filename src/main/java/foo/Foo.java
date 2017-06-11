@@ -27,7 +27,7 @@ public class Foo {
      * @throws UnsupportedOperationException Caso o divisor seja 0.
      */
     public static int div(int dividendo, int divisor) {
-        if (b == 0) {
+        if (divisor == 0) {
             throw new UnsupportedOperationException("Can't divide by zero!");
         }
 
