@@ -1,6 +1,6 @@
 package foo;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -35,6 +35,6 @@ public class FooTest {
      */
     @Test
     public void testAdd() throws Exception {
-        assertEquals(Foo.div(10, 5), 2);
+        Assert.assertEquals(Foo.div(10, 5), 2);
     }
 }
