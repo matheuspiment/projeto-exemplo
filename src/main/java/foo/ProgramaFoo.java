@@ -23,7 +23,6 @@ public final class ProgramaFoo {
     public static void main(final String[] args) {
         
         Random gerador = new Random();
-        logger.info("iniciado");
         int dividendo = gerador.nextInt();
         int divisor = gerador.nextInt();
         int resultado = Foo.div(dividendo, divisor);
