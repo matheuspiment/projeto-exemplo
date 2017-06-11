@@ -10,6 +10,16 @@ import static org.junit.Assert.assertEquals;
 public class FooTest {
 
     /**
+     * Testa o construtor da classe.
+     *
+     * @throws IllegalStateException Caso a classe seja instanciada.
+     */
+    @Test(expected = IllegalStateException.class)
+    public void testIllegalState() throws Exception {
+        Foo operacao = new Foo();
+    }
+    
+    /**
      * Testa a exceção do divisor 0.
      *
      * @param a     Dividendo 10.
