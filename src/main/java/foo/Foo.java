@@ -14,7 +14,7 @@ public class Foo {
      *
      * @throws UnsupportedOperationException Caso o divisor seja 0.
      */
-    public static int div(int a, int b) throws Exception {
+    public static int div(int a, int b) {
         if (b == 0) {
             throw new UnsupportedOperationException("Can't divide by zero!");
         }
