@@ -4,6 +4,10 @@ package foo;
  * Foo class
  */
 public class Foo {
+    
+    private Foo() {
+        throw new IllegalStateException("Utility class");
+    }
 
     /**
      * Realiza a divisão de dois números.
