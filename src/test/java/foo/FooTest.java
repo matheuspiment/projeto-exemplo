@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class FooTest {
 
   @Test(expected = UnsupportedOperationException.class)
-  public void testInvalidDivider() {
+  public void testInvalidDivider() throws Exception {
     Foo.div(10, 0);
   }
 
