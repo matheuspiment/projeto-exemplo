@@ -9,7 +9,7 @@ public class Foo {
     * Realiza a divisão de dois números.
     *
     * @param a Dividendo.
-    * @param m Divisor.
+    * @param b Divisor.
     * @return Resultado da divisão.
     *
     * @throws UnsupportedOperationException Caso o divisor seja 0.

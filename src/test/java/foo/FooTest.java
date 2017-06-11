@@ -12,7 +12,7 @@ public class FooTest {
     * Testa a exceção do divisor 0.
     *
     * @param a Dividendo 10.
-    * @param m Divisor 0.
+    * @param b Divisor 0.
     *
     * @throws UnsupportedOperationException Caso o divisor seja 0.
     */
@@ -25,7 +25,7 @@ public class FooTest {
     * Testa a exceção do divisor 0.
     *
     * @param a Dividendo 10.
-    * @param m Divisor 5.
+    * @param b Divisor 5.
     * @return Resultado da divisão 2.
     *
     * @throws UnsupportedOperationException Caso o divisor seja 0.
