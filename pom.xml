@@ -69,19 +69,7 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-    
-    <profiles>
-        <profile>
-        <id>ossrh</id>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-        <properties>
-            <gpg.passphrase>${env.GPG_PASS}</gpg.passphrase>
-        </properties>
-        </profile>
-    </profiles>
-    
+      
     <build>
         <plugins>
             
