@@ -6,14 +6,14 @@ package foo;
  * <p>Implementação de uma classe para divisão de sois números.
  *
  */
-public class Foo {
+public class Fooo {
     
     /**
      * Construtor da classe.
      *
      * @throws IllegalStateException Caso a classe seja instaciada.
      */
-    protected Foo() {
+    protected Fooo() {
         throw new IllegalStateException("Utility class");
     }
 
