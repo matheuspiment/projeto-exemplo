@@ -28,4 +28,6 @@ script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
   
 after_script:
+  - ./cc-test-reporter format-coverage -d -t jacoco /build/report/jacoco/test/jacocoTestReport.xml
+  - ./cc-test-reporter upload-coverage -d 
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
