@@ -1,3 +1,6 @@
+global:
+  - CC_TEST_REPORTER_ID=$CODE_REPO
+    
 language: java
 sudo: false
 install: true
@@ -14,7 +17,16 @@ cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.sonar/cache'
+    
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
   # JaCoCo is used to have code coverage, the agent has to be activated
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+  - bundle exec rspec
+  
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
